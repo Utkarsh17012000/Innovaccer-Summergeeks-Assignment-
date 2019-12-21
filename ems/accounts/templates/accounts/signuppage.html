@@ -1,0 +1,79 @@
+{% extends 'base3.html' %}
+ 
+{% block content %}
+    <br>
+    <div class="row justify-content-center">
+        {% if error %}
+        {{ error }}
+    {% endif %}
+    </div>
+    <br>
+
+    <div class="cover-heading text-center">
+        <h1>SignUp</h1>
+    </div>
+    <div class="container" style="margin-top: 5%;">
+    <form action="{% url 'accounts:signup' %}" method="POST" class="form" style="align-content: center;">{% csrf_token %}
+        <div class="row justify-content-center">
+            <div class="form-group">
+                <input readonly class="form-control-plaintext" value="Name">
+            </div>
+            <div class="form-group ">
+                {{ form.name }}
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="form-group">
+                <input readonly class="form-control-plaintext" value="Email">
+            </div>
+            <div class="form-group ">
+                {{ form.email }}
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="form-group">
+                <input readonly class="form-control-plaintext" value="Password">
+            </div>
+            <div class="form-group ">
+                {{ form.password }}
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="form-group">
+                <input type="text" readonly class="form-control-plaintext" value="Confirm Password">
+            </div>
+            <div class="form-group ">
+                {{ form.confirm_password }}
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="form-group">
+                <input type="text" readonly class="form-control-plaintext" value="Phone">
+            </div>
+            <div class="form-group ">
+                {{ form.phone }}
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="form-group">
+                <input type="text" readonly class="form-control-plaintext" value="AccountType">
+            </div>
+            <div class="form-group ">
+                <label for="name2" class="sr-only">Password</label>
+                {{ form.account_type }}
+            </div>
+        </div><br>
+        <div class="row justify-content-center">
+        <input class="btn btn-primary text-center" type="submit" value="Signup!"/>
+        </div>
+    </form>
+    </div>
+    
+     
+{% endblock %}
+<form action="{% url 'accounts:signup' %}" method="POST">{% csrf_token %}
+    <div class="text-center" >
+        {{ form.as_p }}
+        
+    </div> 
+</form>

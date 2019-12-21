@@ -1,0 +1,37 @@
+{% extends 'base3.html' %}
+
+{% block content %}
+    <br>
+    <div class="row justify-content-center">
+        {% if error %}
+        {{ error }}
+      {% endif %}
+    </div>
+    <br>
+    <div class="text-center">
+        <h1>Login</h1>
+    </div>
+    <div class="container" style="margin-top: 5%;">
+    <form method="POST" action="{% url 'accounts:login' %}" class="form" style="align-content: center;">{% csrf_token %}
+        <div class="row justify-content-center">
+            <div class="form-group">
+                <input readonly class="form-control-plaintext" value="Username">
+            </div>
+            <div class="form-group ">
+                <input type="text" name="email" placeholder="email" >    
+            </div>        
+        </div>
+        <div class="row justify-content-center">
+            <div class="form-group">
+                <input readonly class="form-control-plaintext" value="Password">
+            </div>
+            <div class="form-group ">
+                <input type="password" name="password" placeholder="password" >    
+            </div>        
+        </div><br>
+        <div class="row justify-content-center">
+            <input class="btn btn-primary text-center" type="submit" value="Login" >
+        </div>
+    </form>
+    </div>
+{% endblock %}

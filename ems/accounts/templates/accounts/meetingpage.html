@@ -1,0 +1,72 @@
+{% extends 'base3.html' %}
+{% block content %}
+    <br><br>
+    <div class="container">
+        <div class="row">   
+            <div class="col-md-6">
+                <h1>Meeting Details</h1><br><br>
+                <form method="POST" action="{% url 'accounts:meeting' visitor_details.id %}" class="form" style="align-content: center;">{% csrf_token %} 
+                    <div class="row justify-content">                    
+                        <div class="form-group">
+                            <input readonly class="form-control-plaintext" value="HostId">
+                        </div>
+                        <div class="form-group ">
+                            {{ form.host_id }}
+                        </div>
+                    </div>
+
+                    <div class="row justify-content">
+                        <div class="form-group">
+                            <input readonly class="form-control-plaintext" value="Check In Time">
+                        </div>
+                        <div class="form-group ">
+                            {{ form.check_in_time }}
+                        </div>
+                    </div>
+
+                    <div class="row justify-content">
+                        <div class="form-group">
+                            <input readonly class="form-control-plaintext" value="Check Out Time">
+                        </div>
+                        <div class="form-group ">
+                            {{ form.check_out_time }}
+                        </div>
+                    </div>
+                    
+                    <div class="row justify-content">
+                        <div class="form-group">
+                            <input readonly class="form-control-plaintext" value="Address">
+                        </div>
+                        <div class="form-group ">
+                            {{ form.address }}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row justify-content">
+                        <input class="btn btn-primary text-center" type="submit" value="Schedule" />
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6"style="text-align: center;">
+                <h1>Host Details</h1><br>
+                <div style="height:400px;width:520px;border:1px solid#ccc;font:16px/26px Georgia, Garamond, Serif;overflow-x:hidden ;overflow-y: auto;">
+                    <div class="row">
+                        <div class="col-md-6" style="text-align: center;">
+                            <h4><b>Id</b></h4>
+                            {% for host in host_details %}
+                            <p>{{ host.id }}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="col-md-6" style="text-align: center;">
+                            <h4><b>Name</b></h4>
+                            {% for host in host_details %}
+                            <p>{{ host.name }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <br><br>
+{% endblock %}
