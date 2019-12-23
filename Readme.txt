@@ -17,6 +17,8 @@ Views Highlights
 
 •	Meeting View: This view contains all the code to let the user gets to the meeting page template, displays all the host available in the database, creates a model object upon successful validation of meeting form, sends email and SMS to the chosen host just after successful scheduling of meeting and schedule the job to send the email to visitor past the check-out-time of the meeting. It redirects visitor the detail template upon successful meeting event other error gets raised.
 
+•	Delete View: It, upon being clicked, deletes the details as well as the account of the user from the database.
+
 •	Relogin View: It just re-login the pre logged in user upon any update in the database of the user whenever required.
 
 •	Send Email View: It contains all the code to send an email to the user.
